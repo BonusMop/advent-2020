@@ -1,0 +1,32 @@
+{
+  "name": "advent-2020",
+  "version": "1.0.0",
+  "description": "A typescript project template.",
+  "main": "./src/index.ts",
+  "scripts": {
+    "test": "jest",
+    "develop": "ts-node src/index.ts"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BonusMop/advent-2020.git"
+  },
+  "keywords": [
+    "typescript",
+    "template",
+    "node"
+  ],
+  "author": "Brian Butler",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/BonusMop/advent-2020/issues"
+  },
+  "homepage": "https://github.com/BonusMop/advent-2020#readme",
+  "devDependencies": {
+    "@types/jest": "^24.9.1",
+    "jest": "^26.6.3",
+    "ts-jest": "^26.4.3",
+    "ts-node": "^8.10.2",
+    "typescript": "^3.9.7"
+  }
+}
