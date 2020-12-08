@@ -15,7 +15,8 @@ export class DayOne implements Puzzle {
     async solve(): Promise<string> {
         const data = await this._input.inputFor<number>(1);
 
-        return await this.productOfTwo(data);
+        // return await this.productOfTwo(data);
+        return await this.productOfThree(data);
     }
 
     async productOfTwo(data: number[]): Promise<string> {
@@ -27,6 +28,21 @@ export class DayOne implements Puzzle {
                 if ((n != m) && (n + m == 2020)) {
                     result = ""+n*m;
                 }
+            });
+        });
+        return result;
+    }
+
+    async productOfThree(data: number[]): Promise<string> {
+        let result: string = "none";
+
+        data.forEach(n => {
+            data.forEach(m => {
+                data.forEach(l => {
+                    if ((n != m) && (n != l) && (n + m + l == 2020)) {
+                        result = ""+n*m*l;
+                    }
+                });
             });
         });
         return result;
