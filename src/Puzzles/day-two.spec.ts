@@ -9,3 +9,12 @@ test('check passwords the first way', async () => {
     ]));
     expect(await puzzle.solveFirst()).toBe("2");
 });
+
+test('check passwords the second way', async () => {
+    const puzzle: DayTwo = new DayTwo(new MockInput([
+        "1-3 a: abcde",
+        "1-3 b: cdefg",
+        "2-9 c: ccccccccc",
+    ]));
+    expect(await puzzle.solveSecond()).toBe("1");
+});

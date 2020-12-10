@@ -1,10 +1,12 @@
 export class PasswordEntry {
+    private _input: string;
     private _min: number;
     private _max: number;
     private _req: string;
     private _password: string;
 
     constructor(input: string) {
+        this._input = input;
         const passExpression = /(?<min>\d+)-(?<max>\d+) (?<req>[a-z]): (?<password>[a-z]+)/;
         const groups = input.match(passExpression)?.groups;
         this._min = groups ? parseInt(groups['min']) || 1 : 1;
@@ -36,5 +38,12 @@ export class PasswordEntry {
         const reqCount = totalCount - otherCount;
         
         return this._min <= reqCount && reqCount <= this._max;
+    }
+
+    validNew(): boolean {
+        let count = 0;
+        if (this._password[this._min-1] === this._req) count++;
+        if (this._password[this._max-1] === this._req) count++;
+        return count == 1;
     }
 }

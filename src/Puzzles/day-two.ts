@@ -31,7 +31,7 @@ export class DayTwo implements Puzzle {
 
         let validCount = 0;
         entries.forEach(entry => {
-            if (entry.valid()) validCount++;
+            if (entry.validNew()) validCount++;
         });
 
         return ""+validCount;
