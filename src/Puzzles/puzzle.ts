@@ -1,4 +1,5 @@
 export interface Puzzle {
-    solve(): Promise<string>;
+    solveFirst(): Promise<string>;
+    solveSecond(): Promise<string>;
     readonly name: string;
 }

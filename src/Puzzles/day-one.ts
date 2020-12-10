@@ -5,17 +5,22 @@ export class DayOne implements Puzzle {
     protected _input: PuzzleInput;
 
     public get name(): string {
-        return "Day 01a";
+        return "Day 01";
     }
 
     constructor(input: PuzzleInput) {
         this._input = input;
     }
 
-    async solve(): Promise<string> {
+    async solveFirst(): Promise<string> {
         const data = await this._input.inputFor<number>(1);
 
-        // return await this.productOfTwo(data);
+        return await this.productOfTwo(data);
+    }
+
+    async solveSecond(): Promise<string> {
+        const data = await this._input.inputFor<number>(1);
+
         return await this.productOfThree(data);
     }
 
