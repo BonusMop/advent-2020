@@ -32,7 +32,6 @@ export class DayFour implements Puzzle {
 
         passports.forEach((passport: Passport) => {
             if (passport.strictValidIgnoringCountry) { count++; 
-            console.log(passport.toString());
         }
         });
 

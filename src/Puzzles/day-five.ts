@@ -21,6 +21,11 @@ export class DayFive implements Puzzle {
 
     async solveSecond(): Promise<string> {
         const data = await this._input.stringInputFor(5);
-        return "nope";
+        const ids = data.map(item => (new BoardingPass(item)).id).sort((a, b) => b - a);
+        for (let i=0;i<884;i++) {
+            if (ids[i] != 955-i) return ""+(955-i);
+        }
+
+        return "error";
     }
 }
