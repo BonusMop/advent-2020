@@ -27,7 +27,16 @@ export class DayFour implements Puzzle {
 
     async solveSecond(): Promise<string> {
         const data = await this._input.stringInputFor(4);
-        return "nope";
+        const passports = this.parsePassports(data);
+        let count = 0;
+
+        passports.forEach((passport: Passport) => {
+            if (passport.strictValidIgnoringCountry) { count++; 
+            console.log(passport.toString());
+        }
+        });
+
+        return ""+count;
     }
 
     private parsePassports(data: string[]): Passport[] {
