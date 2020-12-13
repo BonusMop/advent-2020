@@ -26,3 +26,21 @@ test('can count collisions', async () => {
 
     expect(await puzzle.solveFirst()).toBe("7");
 });
+
+test('can count lots of collisions', async () => {
+    const puzzle: DayThree = new DayThree(new MockInput([
+        "..##.......",
+        "#...#...#..",
+        ".#....#..#.",
+        "..#.#...#.#",
+        ".#...##..#.",
+        "..#.##.....",
+        ".#.#.#....#",
+        ".#........#",
+        "#.##...#...",
+        "#...##....#",
+        ".#..#...#.#",
+    ]));
+
+    expect(await puzzle.solveSecond()).toBe("336");
+});
