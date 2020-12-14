@@ -18,4 +18,8 @@ export class CustomsDeclaration {
     get yeses() {
         return Object.keys(this._answers).length;
     }
+
+    get unanimousYeses() {
+        return Object.values(this._answers).filter(count => count === this._input.length).length;
+    } 
 }

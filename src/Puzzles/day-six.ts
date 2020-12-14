@@ -29,7 +29,16 @@ export class DaySix implements Puzzle {
 
     async solveSecond(): Promise<string> {
         const data = await this._input.stringInputFor(6);
-        return "error";
+        const splitData = this.splitInput(data);
+        const declarations = splitData.map(group => new CustomsDeclaration(group));
+
+        let total = 0;
+        declarations.forEach( declaration => {
+            total += declaration.unanimousYeses;
+            console.log(declaration.unanimousYeses);
+        });
+
+        return ""+total;
     }
 
     private splitInput(input: string[]): string[][] {
