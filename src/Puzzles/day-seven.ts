@@ -26,7 +26,9 @@ export class DaySeven implements Puzzle {
 
     async solveSecond(): Promise<string> {
         const data = await this._input.stringInputFor(7);
-        return "not implemented";
+        const bags = this.bagGraph(data);
+        const count = this.containCount(bags['shiny gold']);
+        return ""+count;
     }
 
     private getOrCreateBag(name: string, bags: BagCollection): Bag {
@@ -40,10 +42,20 @@ export class DaySeven implements Puzzle {
 
         let result: string[] = [];
         bag.containedIn.forEach(containment => {
-            const allowed = this.allowedFor(containment.fitsIn);
-            result = [...result, ...allowed, containment.fitsIn.name];
+            const allowed = this.allowedFor(containment.bag);
+            result = [...result, ...allowed, containment.bag.name];
         });
         return [...new Set(result)]; // only unique answers
+    }
+
+    private containCount(bag: Bag): number {
+        if (!bag) return 0;
+        
+        let result = 0;
+        bag.contains.forEach(containment => {
+            result += (1 + this.containCount(containment.bag)) * containment.quantity;
+        });
+        return result;
     }
 
     private bagGraph(data: string[]): BagCollection {
@@ -56,6 +68,7 @@ export class DaySeven implements Puzzle {
                 if (groups) {
                     const innerBag = this.getOrCreateBag(groups['color'], bags);
                     innerBag.containedIn.push(new BagContainment(outerBag, parseInt(groups['num'])));
+                    outerBag.contains.push(new BagContainment(innerBag, parseInt(groups['num'])));
                 }
             });
         });

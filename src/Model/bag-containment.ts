@@ -1,16 +1,16 @@
 import { Bag } from "./bag";
 
 export class BagContainment {
-    private _fitsIn: Bag;
+    private _bag: Bag;
     private _quantity: number;
 
-    constructor(fitsIn: Bag, quantity: number){
-        this._fitsIn = fitsIn;
+    constructor(bag: Bag, quantity: number){
+        this._bag = bag;
         this._quantity = quantity;
     }
 
-    get fitsIn() {
-        return this._fitsIn;
+    get bag() {
+        return this._bag;
     }
 
     get quantity() {
