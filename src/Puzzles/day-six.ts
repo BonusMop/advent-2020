@@ -21,7 +21,6 @@ export class DaySix implements Puzzle {
         let total = 0;
         declarations.forEach( declaration => {
             total += declaration.yeses;
-            console.log(declaration.yeses);
         });
 
         return ""+total;
@@ -35,7 +34,6 @@ export class DaySix implements Puzzle {
         let total = 0;
         declarations.forEach( declaration => {
             total += declaration.unanimousYeses;
-            console.log(declaration.unanimousYeses);
         });
 
         return ""+total;
