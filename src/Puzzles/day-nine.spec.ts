@@ -3,7 +3,7 @@ import { DayNine } from './day-nine';
 
 test ('can find invalid entries', async () => {
     const puzzle = new DayNine(new MockInput([]));
-    const result = puzzle.firstInvalid([
+    const input = [
         35,
         20,
         15,
@@ -23,7 +23,10 @@ test ('can find invalid entries', async () => {
         299,
         277,
         309,
-        576], 5);
+        576];
+    const result = puzzle.firstInvalid(input, 5);
+    const rangeFor = puzzle.rangeFor(input, 127);
 
     expect(result).toBe(127);
+    expect(rangeFor).toBe(62);
 });
