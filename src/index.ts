@@ -10,6 +10,7 @@ import { DaySix } from "./Puzzles/day-six";
 import { DaySeven } from "./Puzzles/day-seven";
 import { DayEight } from "./Puzzles/day-eight";
 import { DayNine } from "./Puzzles/day-nine";
+import { DayTen } from "./Puzzles/day-ten";
 
 const run = async (): Promise<void> => {
     const input = new AdventInput(__dirname + "/data");
@@ -23,6 +24,7 @@ const run = async (): Promise<void> => {
         new DaySeven(input),
         new DayEight(input),
         new DayNine(input),
+        new DayTen(input),
     ];
 
     const solutionPromises = puzzles.map(p => { return { name: p.name, solverOne: p.solveFirst(), solverTwo: p.solveSecond() }})
